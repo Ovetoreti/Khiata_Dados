@@ -36,7 +36,7 @@ Scripts de dados e consultas em SQL, MongoDB, e Redis:
 ### `/dashboards`
 Dashboards e relatórios sobre o aplicativo:
 
-- **`reports/`** - Arquivos com análises dos dashboards
+- **`reports/`** - Arquivos com análises e as bases utilizadas para a criação dos dashboards
 - **`visuals/`** - Arquivos no formato .pbix
 
 ### `/python`
@@ -44,7 +44,7 @@ Scripts Python relacionados à Inteligência Artificial:
 
 - **`model/`** - Modelo de IA e aprendizado de máquina.
 - **`notebooks/`** - Notebooks Jupyter com análises.
-- **`utils/`** - Scripts auxiliares e de pré-processamento de dados.
+- **`utils/`** - Scripts de pré-processamento de dados e as bases utilizadas.
 
 ### `/docs`
 Documentação completa sobre o app e as tecnologias usadas:
