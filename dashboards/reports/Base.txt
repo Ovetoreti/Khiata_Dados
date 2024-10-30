@@ -7,7 +7,4 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRfiEU1MD5TR55Ytpe0_k8TNRK_6rj39
 
 
 DASH Administrativo
-LOGIN BD
-
-
-
+LOGIN do Banco de Dados com as informações da feira
