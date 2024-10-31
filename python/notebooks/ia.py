@@ -1,3 +1,9 @@
+# Com base na análise dos resultados e considerando o equilíbrio entre precisão e capacidade de generalização, o Decision Tree com o critério Gini ajustado se destaca como a melhor escolha. Este modelo apresentou:
+ 
+# 1. Equilíbrio entre as classes: Com precisão e recall mais balanceados para as classes "Sim" e "Não".
+# 2. Acurácia média: 0.65, conforme cross-validation, o que demonstra um bom nível de confiabilidade e generalização para novos dados.
+# 3. Menor tendência de enviesamento: Diferente do Naive Bayes, que apresentou forte enviesamento, o Decision Tree com Gini distribuiu as previsões de forma mais uniforme.
+
 # Importações para análise de dados
 import pandas as pd
 
@@ -11,15 +17,19 @@ from sklearn.model_selection import train_test_split
 
 # Importação para aumentar nossa base de dados, duplicamento de dados
 from imblearn.over_sampling import SMOTE
-from sklearn.neighbors import KNeighborsClassifier
 
-# Importações para a Serialização
+from sklearn.model_selection import GridSearchCV
+from sklearn import tree
+
+# Importações para o Cross Validation
+from sklearn.model_selection import KFold
+
+# Para serializar
 import pickle as pkl
 
-# Importação para o Pipeline
-from sklearn.pipeline import Pipeline
-
 df = pd.read_csv(r'python\utils\FormsKhiataTratada.csv')
+
+# -=-=-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=-
 
 # Atributos
 atributos = df.drop('Utilizaria_App_Costura', axis=1)
@@ -32,8 +42,7 @@ resposta = df['Utilizaria_App_Costura']
 label_encoder = LabelEncoder()
 
 # Transformando os atributos de valores categóricos para valores numéricos
-# Usando o ColumnTransformer() para transformar
-# Usando o OrdinalEncoder() para ordenar as colunas
+# Usando o ColumnTransformer() para transformar e o OrdinalEncoder() para ordenar as colunas
 
 preprocessador = ColumnTransformer(transformers = [
     ('categoricas', OrdinalEncoder(), make_column_selector(dtype_include = ['object', 'bool'])),
@@ -59,17 +68,39 @@ atributos_pre = atributos_pre[colunas_originais] # atributos_pre variáveis send
 
 X_treino, X_teste, y_treino, y_teste = train_test_split(atributos_pre, resposta_pre, test_size = 0.20, random_state=42)
 
-smote = SMOTE(k_neighbors=5, random_state=42)
+smote = SMOTE(k_neighbors = 5, random_state = 42)
 X_treino_smote, y_treino_smote = smote.fit_resample(X_treino, y_treino)
 
-# Criando classificador com SMOTE
-classificador_knn_smote = KNeighborsClassifier(n_neighbors = 34)
+# Parâmetros
+parametros_gini = {
+    'criterion': ['gini'],
+    'splitter': ['best', 'random'],
+    'max_depth': [None, 2, 4, 6, 8, 10, 12],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 5, 10],
+    'max_features': [None, 'sqrt', 'log2']
+}
 
-# Treinando o modelo SMOTE
-classificador_knn_smote.fit(X_treino_smote, y_treino_smote)
+# Criando classificador com os hyper parameters
+classificador_gini_smote_cross_validation = tree.DecisionTreeClassifier(
+    criterion='gini', 
+    max_depth=4, 
+    max_features='log2', 
+    min_samples_leaf=10, 
+    min_samples_split=2, 
+    splitter='best'
+)
 
-# Prevendo o Modelo com o SMOTE
-previsoes_knn_smote = classificador_knn_smote.predict(X_teste)
+# Criando objeto GridSearchCV, para o Cross Validation com os hyperparametros
+gini_cross_validantion_grid = GridSearchCV(
+    estimator=classificador_gini_smote_cross_validation, 
+    param_grid=parametros_gini, 
+    scoring='accuracy', 
+    cv=KFold(n_splits=5, random_state=42, shuffle=True)
+)
+
+# Treinando o Modelo com o SMOTE
+gini_cross_validantion_grid.fit(X_treino_smote, y_treino_smote)
 
 # Serializar o pipeline de pré-processamento
 with open(r'python\model\preprocessador.pkl', 'wb') as f:
@@ -77,4 +108,4 @@ with open(r'python\model\preprocessador.pkl', 'wb') as f:
     
 # Serializar o modelo
 with open(r'python\model\classificador.pkl', 'wb') as f:
-    pkl.dump(classificador_knn_smote, f)
+    pkl.dump(gini_cross_validantion_grid, f)
