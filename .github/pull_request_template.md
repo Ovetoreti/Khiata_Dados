@@ -17,4 +17,4 @@ Descreva brevemente o que foi alterado.
 
 ## Comentários Adicionais
 
-Adicione qualquer informação adicional relevante.
+Adicione qualquer informação adicional que seja relevante.

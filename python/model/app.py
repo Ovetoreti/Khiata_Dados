@@ -1,21 +1,24 @@
-import pickle as pkl
-import pandas as pd
+from dotenv import load_dotenv
+import os
+from pymongo import MongoClient
 
-# Carregar o preprocessador e o modelo
-with open('preprocessador.pkl', 'rb') as f:
-    preprocessador = pkl.load(f)
+# Load environment variables from .env file
+load_dotenv()
 
-with open('classificador.pkl', 'rb') as f:
-    classificador = pkl.load(f)
+mongo_uri = os.getenv('URI_MONGO')
 
+print("MongoDB URI:", mongo_uri)  # Print URI for verification
 
-def predict():
-    dados_formulario = "dicionário do banco de dados"
-    dados_df = pd.DataFrame([dados_formulario])
+try:
+    # Connect to MongoDB
+    client = MongoClient(mongo_uri)
+    print("Connected to MongoDB.")
 
-    # Pré-processar os dados
-    dados_preprocessados = preprocessador.transform(dados_df)
+    # Access specific database
+    db = client['Khiata']
+    print("Database 'Khiata' accessed successfully.")
+    
+    print('collections: ', db.list_collection_names())
 
-    # Fazer a previsão
-    previsao = classificador.predict(dados_preprocessados)
-    return previsao[0]
+except Exception as e:
+    print("Failed to connect to MongoDB:", e)
