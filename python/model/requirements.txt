@@ -1,0 +1,4 @@
+pymongo
+python-dotenv
+scikit-learn
+pandas
