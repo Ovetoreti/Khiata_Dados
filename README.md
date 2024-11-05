@@ -79,14 +79,7 @@ Para clonar e utilizar este repositório, você precisará de:
    - Configure as conexões e os scripts iniciais dentro da pasta `/scripts`.
 
 3. **Executar Análises com IA:**
-   Será necessário criar um ambiente virtual e fazer o uso de um .env para utilizar a previsão da IA ao responder o formulário no aplicativo.
-   ```bash
-   cd python/model
-   python -m venv .venv
-   .venv\Scripts\activate
-   pip install -r requirements.txt
-   cp .env.example .env
-   ```
+   - Navegue até a pasta `/python/models` para treinar ou usar os modelos.
 
 4. **Visualização de Dashboards:**
    - Dashboards e visualizações estão localizados em `/dashboards/reports`.
