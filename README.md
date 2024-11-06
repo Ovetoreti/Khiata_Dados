@@ -13,7 +13,7 @@ Este repositório reúne todos os arquivos e documentos necessários para gerenc
 - [Pré-requisitos](#✅-pré-requisitos)
 - [Instruções de Uso](#🚀-instruções-de-uso)
 - [Documentação](#📚-documentação)
-- [Repos-Relacionados](#🔗-Repositórios Relacionados)
+- [Repos-Relacionados](#🔗-Repositórios-Relacionados)
 
 ---
 
@@ -99,12 +99,12 @@ A documentação detalhada do **Khiata** pode ser encontrada na pasta **`/docs`*
 
 ## 🔗 Repositórios Relacionados
 
-- IA_integracao: Possui todos os arquivos que foram utilizados na integração da nossa IA ao aplicativo
+- rpa_banco: Repositório utilizado para o desenvolvimento, documentação e análise do rpa_banco, uma solução de RPA (Automação de Processos Robóticos) voltada para automatizar a normalização do Banco de Dados original
    ```bash
-   https://github.com/Ovetoreti/IA_integracao.git
+   https://github.com/Ovetoreti/rpa_banco.git
    ```
 
-- interdisciplinarR: Repositório utilizado para armazenamento e versionamento de códigos Back-end das APIs que coletam as informacões dos bancos noSQL
+- interdisciplinarR: Repositório utilizado para armazenamento e versionamento de códigos Back-end das APIs que coletam as informacões dos bancos noSQL, além de possuir todos os arquivos que foram utilizados na integração da nossa IA ao aplicativo
    ```bash
    https://github.com/inaldopf/interdisciplinarR.git
    ```
