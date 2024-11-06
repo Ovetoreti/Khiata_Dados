@@ -99,12 +99,7 @@ A documentação detalhada do **Khiata** pode ser encontrada na pasta **`/docs`*
 
 ## 🔗 Repositórios Relacionados
 
-- IA_integracao: Possui todos os arquivos que foram utilizados na integração da nossa IA ao aplicativo
-   ```bash
-   https://github.com/Ovetoreti/IA_integracao.git
-   ```
-
-- interdisciplinarR: Repositório utilizado para armazenamento e versionamento de códigos Back-end das APIs que coletam as informacões dos bancos noSQL
+- interdisciplinarR: Repositório utilizado para armazenamento e versionamento de códigos Back-end das APIs que coletam as informacões dos bancos noSQL, além de possuir todos os arquivos que foram utilizados na integração da nossa IA ao aplicativo
    ```bash
    https://github.com/inaldopf/interdisciplinarR.git
    ```
