@@ -13,6 +13,7 @@ Este repositório reúne todos os arquivos e documentos necessários para gerenc
 - [Pré-requisitos](#✅-pré-requisitos)
 - [Instruções de Uso](#🚀-instruções-de-uso)
 - [Documentação](#📚-documentação)
+- [Repos-Relacionados](#🔗-Repositórios Relacionados)
 
 ---
 
@@ -20,7 +21,7 @@ Este repositório reúne todos os arquivos e documentos necessários para gerenc
 
 O **Khiata** é um aplicativo inovador que facilita o encontro entre costureiras e pessoas que procuram produtos feitos sob medida. Este repositório centraliza scripts de dados, dashboards de monitoramento e análise, e módulos de IA, apoiando o desenvolvimento e a manutenção do app.
 
----
+Temos outros dois repositórios além deste para a parte de Dados do projeto. Sendo eles:
 
 ## 📁 Estrutura do Repositório
 
@@ -93,5 +94,19 @@ A documentação detalhada do **Khiata** pode ser encontrada na pasta **`/docs`*
 - Modelos de dados em SQL, MongoDB e Redis
 - Arquitetura de IA
 - Estrutura de dashboards e relatórios
+
+---
+
+## 🔗 Repositórios Relacionados
+
+- IA_integracao: Possui todos os arquivos que foram utilizados na integração da nossa IA ao aplicativo
+   ```bash
+   https://github.com/Ovetoreti/IA_integracao.git
+   ```
+
+- interdisciplinarR: Repositório utilizado para armazenamento e versionamento de códigos Back-end das APIs que coletam as informacões dos bancos noSQL
+   ```bash
+   https://github.com/inaldopf/interdisciplinarR.git
+   ```
 
 ---
