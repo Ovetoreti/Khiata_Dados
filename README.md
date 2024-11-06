@@ -13,7 +13,7 @@ Este repositório reúne todos os arquivos e documentos necessários para gerenc
 - [Pré-requisitos](#✅-pré-requisitos)
 - [Instruções de Uso](#🚀-instruções-de-uso)
 - [Documentação](#📚-documentação)
-- [Repos-Relacionados](#🔗-Repositórios Relacionados)
+- [Repos-Relacionados](#🔗-Repositórios-Relacionados)
 
 ---
 
